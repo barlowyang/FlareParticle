@@ -3,6 +3,7 @@ package ControlPanel
     import flash.display.DisplayObjectContainer;
     
     import ControlPanel.Property.TGeneralProperty;
+    import ControlPanel.Property.TParticlesProperty;
     import ControlPanel.Property.TTransformProperty;
     
     import UI.TFoldPanelBase;
@@ -20,6 +21,8 @@ package ControlPanel
 		
 		private var FGeneral:TGeneralProperty;
 		
+		private var FParticle:TParticlesProperty;
+		
 		private var FPanel:Panel;
 		private var FVBox:VBox;
         
@@ -31,7 +34,6 @@ package ControlPanel
         override public function draw():void
         {
             super.draw();
-			
 			
         }
         
@@ -51,8 +53,9 @@ package ControlPanel
 			
 			FTransform = new TTransformProperty(FVBox);
 			FGeneral = new TGeneralProperty(FVBox);
+			FParticle = new TParticlesProperty(FVBox);
 			
-			height = FPanel.height = FTransform.height + FGeneral.height + 10;
+			height = FPanel.height = FTransform.height + FGeneral.height + FParticle.height + 10;
         }
 		
 		override public function set width(w:Number):void
@@ -62,6 +65,7 @@ package ControlPanel
 			FPanel.width = w;
 			FTransform.width = w;
 			FGeneral.width = w;
+			FParticle.width = w;
 		}
         
         public function set Target(target:Pivot3D):void
@@ -70,6 +74,7 @@ package ControlPanel
             
 			FTransform.Target = target;
 			FGeneral.Target = target;
+			FParticle.Target = target;
         }
     }
 }

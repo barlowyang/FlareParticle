@@ -168,21 +168,6 @@ package
         { 
             switch(e.currentTarget)
             {
-                case FGridVisibleCommand:
-                {
-                    FGridVisibleCommand.checked = FPreviewArea.GridVisible = !FPreviewArea.GridVisible;
-                    break;
-                }
-                case FAxisVisibleCommand:
-                {
-                    FAxisVisibleCommand.checked = FPreviewArea.AxisVisible = !FPreviewArea.AxisVisible;
-                    break;
-                }
-                case FResetCamCommand:
-                {
-                    FPreviewArea.ResetCam();
-                    break;
-                }
                 case FQuickHelpCommnad:
                 {
                     SwitchQuickHelpVisible();

@@ -31,7 +31,6 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
-      <libraryPathEntry kind="3" linkType="1" path="/GtCore/bin/GtCore.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="/Naruto3D_Tool_Libs/bin/Naruto3D_Tool_Libs.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="/Flare3DExt/bin/Flare3DExt.swc" useDefaultLinkType="false"/>
     </libraryPath>

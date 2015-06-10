@@ -4,10 +4,7 @@ package
     import flash.events.Event;
     import flash.events.MouseEvent;
     
-    import ControlPanel.TAnimationPanel;
     import ControlPanel.TPropertyPanel;
-    
-    import Data.TParticle3DAnimation;
     
     import bit101.components.Component;
     import bit101.components.Panel;
@@ -16,14 +13,12 @@ package
     
     public class TControlPanel extends Panel
     {
+		
         private var FScrollbar:VScrollBar;
         private var FContainer:Panel;
         private var FContent:VBox;
         private var FPanelList:Vector.<Component>;
-     //   private var FCustomPanel:TCustomPanel;
-        private var FAnimationPanel:TAnimationPanel;
         private var FPropertyPanel:TPropertyPanel;
-       // private var FBehaviorPanel:TBehaviorPanel;
         
         private var FPreviewArea:TPreviewArea;
         
@@ -50,21 +45,9 @@ package
             FScrollbar.y = 5;
             
             FPanelList = new Vector.<Component>();
-           // FCustomPanel = InitPanel(TCustomPanel, true);
-            FAnimationPanel = InitPanel(TAnimationPanel);
-            FAnimationPanel.addEventListener(Event.SELECT, SelectedAnimation);
 			
             FPropertyPanel = InitPanel(TPropertyPanel);
-         //   FBehaviorPanel = InitPanel(TBehaviorPanel);
-            FAnimationPanel.AppendAnimation();
-        }
-        
-        private function SelectedAnimation(e:Event):void
-        {
-            var selectedItem:TParticle3DAnimation = FAnimationPanel.CurrentSelectAnimation;
-            FPropertyPanel.Target = selectedItem.Particle;
-          //  FBehaviorPanel.Target = selectedItem;
-//			FAnimationPanel.visible = false;
+			FPropertyPanel.Target = FPreviewArea.particle;
         }
         
         private function InitPanel(panelClass:Class, fold:Boolean = false):*
