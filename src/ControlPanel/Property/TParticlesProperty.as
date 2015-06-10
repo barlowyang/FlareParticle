@@ -16,6 +16,7 @@ package ControlPanel.Property
 	import flare.apps.controls.GradientColor;
 	import flare.core.Particles3DExt;
 	import flare.core.Pivot3D;
+	import flare.ide.controls.TexturePicker;
 	import flare.naruto.particle.emitter.ThreeD.TThreeDConst;
 	import flare.naruto.particle.emitter.ThreeD.TThreeDCylinder;
 	import flare.naruto.particle.emitter.ThreeD.TThreeDSphere;
@@ -205,8 +206,55 @@ package ControlPanel.Property
 				FParticle3D.setTint((tintColor >> 24) & 0xff, (tintColor >> 16) & 0xff, (tintColor >> 8) & 0xff, tintColor & 0xff);
 			});
 			
+			new Label(this, xPos=5, yPos+=15, "-----------------------------------------------------------------------");
+			var tmpPosY:uint = yPos;
+			FRndFrameCheckBox = new CheckBox(this, xPos = 140, yPos += 15, "Rnd Frame:");
+			FRndFrameCheckBox.addEventListener(Event.CHANGE, onUpdateCheckbox);
+			new Label(this, xPos=140, yPos+=25, "Frame X: ");
+			FFrameXNum = CreateNumericStepper(xPos += 70, yPos, 20, 70, Num_Step, 2, onUpdateNum);
+			new Label(this, xPos=140, yPos+=25, "Frame Y: ");
+			FFrameYNum = CreateNumericStepper(xPos += 70, yPos, 20, 70, Num_Step, 2, onUpdateNum);
+			
+			new Label(this, xPos=5, yPos = tmpPosY + 15, "Texture: ");
+			FMainTexture = new TexturePicker(null, false);
+			FMainTexture.view.x = 70;
+			FMainTexture.view.y = yPos;
+			addChild(FMainTexture.view);
+			FMainTexture.addEventListener(Event.CHANGE, onLoadBmp);
+			
+			new Label(this, xPos=5, yPos += 70, "Blend: ");
+			FBlendTexture = new TexturePicker(null, false);
+			FBlendTexture.view.x = 70;
+			FBlendTexture.view.y = yPos;
+			addChild(FBlendTexture.view);
+			FBlendTexture.addEventListener(Event.CHANGE, onLoadBmp);
+			
 			height = 1000;
 		}
+		
+		private function onLoadBmp(evt:Event):void
+		{
+			var tar_picker:TexturePicker = evt.currentTarget as TexturePicker;
+			switch(tar_picker)
+			{
+				case FMainTexture:
+				{
+					FParticle3D.texture = tar_picker.texture;
+					break;
+				}
+				case FBlendTexture:
+				{
+					FParticle3D.blendTexture = tar_picker.texture;
+					break;
+				}
+			}
+		}
+		
+		private var FMainTexture:TexturePicker;
+		private var FBlendTexture:TexturePicker;
+		private var FRndFrameCheckBox:CheckBox;
+		private var FFrameXNum:NumericStepper;
+		private var FFrameYNum:NumericStepper;
 		
 		private function onUpdateColor(evt:Event):void
 		{
@@ -336,6 +384,16 @@ package ControlPanel.Property
 					FParticle3D.randomSpin = tar_num.value;
 					break;
 				}
+				case FFrameXNum:
+				{
+					FParticle3D.textureFrames = new Point(tar_num.value, FParticle3D.textureFrames.y);
+					break;
+				}
+				case FFrameYNum:
+				{
+					FParticle3D.textureFrames = new Point(FParticle3D.textureFrames.x, tar_num.value);
+					break;
+				}
 				case FTintColor:
 				{
 					/*
@@ -406,6 +464,12 @@ package ControlPanel.Property
 				case FUseRndGradientColor:
 				{
 					FParticle3D.useRandomColors = tar_checkbox.selected;
+					break;
+				}
+					
+				case FRndFrameCheckBox:
+				{
+					FParticle3D.randomFrame = tar_checkbox.selected;
 					break;
 				}
 					
