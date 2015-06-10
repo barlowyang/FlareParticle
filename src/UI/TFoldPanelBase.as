@@ -97,9 +97,16 @@ package UI
                 FContent.mask = FMask;
                 FoldIndicate.rotation = 0;
             }
-            onInvalidate(null);
-            dispatchEvent(new Event(Event.RESIZE));
+			
+			invalidate();
         }
+		
+		override public function onInvalidate(event:Event):void
+		{
+			super.onInvalidate(event);
+			
+			dispatchEvent(new Event(Event.RESIZE));
+		}
         
         public function get Foldable():Boolean
         {

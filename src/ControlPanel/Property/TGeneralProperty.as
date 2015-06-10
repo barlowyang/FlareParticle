@@ -46,6 +46,8 @@ package ControlPanel.Property
 			
 			new Label(this, xPos += 75, yPos -= 5, "Layer:");
 			FLayerNum = CreateNumericStepper(xPos += 40, yPos, 20, 70, Num_Step, 2, UpdateProperty);
+			
+			height = 90;
 		}
 		
 		private function CheckBoxValueUpdate(evt:Event):void

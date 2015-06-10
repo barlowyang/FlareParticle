@@ -7,6 +7,9 @@ package ControlPanel
     
     import UI.TFoldPanelBase;
     
+    import bit101.components.Panel;
+    import bit101.components.VBox;
+    
     import flare.core.Pivot3D;
     
     public class TPropertyPanel extends TFoldPanelBase
@@ -16,6 +19,9 @@ package ControlPanel
 		private var FTransform:TTransformProperty;
 		
 		private var FGeneral:TGeneralProperty;
+		
+		private var FPanel:Panel;
+		private var FVBox:VBox;
         
         public function TPropertyPanel(parent:DisplayObjectContainer, previewArea:TPreviewArea)
         {
@@ -26,6 +32,7 @@ package ControlPanel
         {
             super.draw();
 			
+			
         }
         
         override protected function addChildren():void
@@ -35,15 +42,24 @@ package ControlPanel
             var xPos:int = 0;
             var yPos:int = 0;
 			
-			FTransform = new TTransformProperty(this);
-			FGeneral = new TGeneralProperty(this);
-			FGeneral.y = 100;
+			FPanel = new Panel(this);
+			
+			FVBox = new VBox(FPanel.content);
+			FVBox.spacing = 3;
+//			FVBox.addEventListener(MouseEvent.MOUSE_WHEEL, MouseWheelHandle);
+			FPanel.y = 5;
+			
+			FTransform = new TTransformProperty(FVBox);
+			FGeneral = new TGeneralProperty(FVBox);
+			
+			height = FPanel.height = FTransform.height + FGeneral.height + 10;
         }
 		
 		override public function set width(w:Number):void
 		{
 			super.width = w;
 			
+			FPanel.width = w;
 			FTransform.width = w;
 			FGeneral.width = w;
 		}

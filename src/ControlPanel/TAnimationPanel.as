@@ -118,12 +118,13 @@ package ControlPanel
         private function CorrectSize():void
         {
             FList.height = Math.min(291,Math.max(88,1+FList.items.length*29));
-            height = FList.y + FList.height + 35;
+            height = 0;
         }
         
         override public function draw():void
         {
             super.draw();
+			
             FRemove.x = width-FRemove.width-5;
             FList.width = width-10;
         }

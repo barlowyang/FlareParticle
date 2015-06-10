@@ -1,7 +1,6 @@
 package
 {
     import flash.display.DisplayObjectContainer;
-    import flash.display.Shape;
     import flash.events.Event;
     import flash.events.MouseEvent;
     
@@ -20,7 +19,6 @@ package
         private var FScrollbar:VScrollBar;
         private var FContainer:Panel;
         private var FContent:VBox;
-        private var FMask:Shape;
         private var FPanelList:Vector.<Component>;
      //   private var FCustomPanel:TCustomPanel;
         private var FAnimationPanel:TAnimationPanel;
@@ -48,7 +46,6 @@ package
             FContent = new VBox(FContainer.content);
             FContent.spacing = 3;
             FContent.addEventListener(MouseEvent.MOUSE_WHEEL, MouseWheelHandle);
-            FMask = new Shape();
             FContainer.y = 5;
             FScrollbar.y = 5;
             
@@ -56,6 +53,7 @@ package
            // FCustomPanel = InitPanel(TCustomPanel, true);
             FAnimationPanel = InitPanel(TAnimationPanel);
             FAnimationPanel.addEventListener(Event.SELECT, SelectedAnimation);
+			
             FPropertyPanel = InitPanel(TPropertyPanel);
          //   FBehaviorPanel = InitPanel(TBehaviorPanel);
             FAnimationPanel.AppendAnimation();
@@ -92,11 +90,11 @@ package
             var maxValue:int = Math.max(FContent.height - FContainer.height, 0)
             var percent:Number =  Math.min(1, FContainer.height/FContent.height);
                 
-            if(FContent.y>0)
+            if(FContent.y > 0)
             {
                 FContent.y = 0;
             }
-            if(FContent.y<-maxValue)
+            if(FContent.y < -maxValue)
             {
                 FContent.y = -maxValue;
             }
@@ -121,7 +119,10 @@ package
         private function UpdatePos(e:Event = null):void
         {
             FContent.draw();
+			
             UpdateScroll();
+			
+			invalidate();
         }   
         
         override public function draw():void
@@ -134,15 +135,15 @@ package
             FContainer.x = 5;
             FScrollbar.x = FContainer.width + 5;
             
+			var yPos:Number = 0;
             var pw:int = FContainer.width;
             var len:int = FPanelList.length;
-            for(var i:int = 0; i<len; i++)
+            for(var i:int = 0; i < len; i++)
             {
                 FPanelList[i].width = pw;
             }
             
             UpdatePos();
         }
-        
     }
 }
