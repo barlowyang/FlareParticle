@@ -19,7 +19,7 @@ package
     
     import flare.system.Device3D;
     
-    [SWF(width="1200",height="800",frameRate="30")]
+    [SWF(width="1200",height="800",frameRate="60")]
     public class Application extends Sprite
     {
         private var FPreivewArea:TPreviewArea;

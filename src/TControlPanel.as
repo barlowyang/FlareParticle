@@ -58,7 +58,6 @@ package
             FAnimationPanel.addEventListener(Event.SELECT, SelectedAnimation);
             FPropertyPanel = InitPanel(TPropertyPanel);
          //   FBehaviorPanel = InitPanel(TBehaviorPanel);
-            
             FAnimationPanel.AppendAnimation();
         }
         
@@ -67,6 +66,7 @@ package
             var selectedItem:TParticle3DAnimation = FAnimationPanel.CurrentSelectAnimation;
             FPropertyPanel.Target = selectedItem.Particle;
           //  FBehaviorPanel.Target = selectedItem;
+//			FAnimationPanel.visible = false;
         }
         
         private function InitPanel(panelClass:Class, fold:Boolean = false):*

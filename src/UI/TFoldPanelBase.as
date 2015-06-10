@@ -19,7 +19,7 @@ package UI
         private var FWidth:int;
         private var FHeight:int;
         private var FMask:Shape;
-        private var FTitleBar:TTitleBar;
+        protected var FTitleBar:TTitleBar;
         private var FContent:DisplayObjectContainer;
         private var FBackground:Shape;
         private var FTitle:String;

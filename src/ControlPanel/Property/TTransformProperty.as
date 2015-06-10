@@ -1,4 +1,4 @@
-package ControlPanel
+package ControlPanel.Property
 {
 	import flash.display.DisplayObjectContainer;
 	import flash.events.Event;
@@ -35,37 +35,40 @@ package ControlPanel
 		
 		public function TTransformProperty(parent:DisplayObjectContainer=null)
 		{
-			super(parent, 0, 0, "Transform", 20);
+			super(parent, 0, 0, "Transform", 25);
 		}
 		
 		override protected function addChildren():void
 		{
 			super.addChildren();
 			
-			var xPos:int = 0
-			var yPos:int = 0
+			var xPos:int = 0;
+			var yPos:int = 0;
 			
+			const Num_Step:Number = 1;
 			//position
 			new Label(this, xPos=5, yPos+=5, "Position X:");
-			FPosXNum = CreateNumericStepper(xPos += 45, yPos, 20, 70, 0.01, 2, UpdateProperty);
+			FPosXNum = CreateNumericStepper(xPos += 70, yPos, 20, 70, Num_Step, 2, UpdateProperty);
 			new Label(this, xPos+75, yPos, "Y:");
-			FPosYNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, 0.01, 2, UpdateProperty);
+			FPosYNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, Num_Step, 2, UpdateProperty);
 			new Label(this, xPos+75, yPos, "Z:");
-			FPosZNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, 0.01, 2, UpdateProperty);
+			FPosZNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, Num_Step, 2, UpdateProperty);
 			
 			new Label(this, xPos=5, yPos+=25, "Rotation X:");
-			FRotXNum = CreateNumericStepper(xPos += 45, yPos, 20, 70, 1, 0, UpdateProperty);
+			FRotXNum = CreateNumericStepper(xPos += 70, yPos, 20, 70, Num_Step, 0, UpdateProperty);
 			new Label(this, xPos+75, yPos, "Y:");
-			FRotYNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, 1, 0, UpdateProperty);
+			FRotYNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, Num_Step, 0, UpdateProperty);
 			new Label(this, xPos+75, yPos, "Z:");
-			FRotZNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, 1, 0, UpdateProperty);
+			FRotZNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, Num_Step, 0, UpdateProperty);
 			
 			new Label(this, xPos=5, yPos+=25, "Scale X:");
-			FScaleXNum = CreateNumericStepper(xPos += 45, yPos, 20, 70, 0.01, 2, UpdateProperty);
+			FScaleXNum = CreateNumericStepper(xPos += 70, yPos, 20, 70, Num_Step, 2, UpdateProperty);
 			new Label(this, xPos+75, yPos, "Y:");
-			FScaleYNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, 1, 0, UpdateProperty);
+			FScaleYNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, Num_Step, 0, UpdateProperty);
 			new Label(this, xPos+75, yPos, "Z:");
-			FScaleZNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, 1, 0, UpdateProperty);
+			FScaleZNum = CreateNumericStepper(xPos += 90, yPos, 20, 70, Num_Step, 0, UpdateProperty);
+			
+			height = 100;
 		}
 		
 		private function UpdateProperty(e:Event):void
@@ -140,7 +143,6 @@ package ControlPanel
 			return ns;
 		}
 		
-		
 		public function set Target(value:Pivot3D):void
 		{
 			FPivot = value;
@@ -157,6 +159,8 @@ package ControlPanel
 			FScaleXNum.value = FPivot.scaleX;
 			FScaleXNum.value = FPivot.scaleY;
 			FScaleXNum.value = FPivot.scaleZ;
+			
+			draw();
 		}
 	}
 }
