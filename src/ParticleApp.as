@@ -11,12 +11,12 @@ package
 	import flare.system.Device3D;
 	
 	[SWF(width="1200",height="800",frameRate="60")]
-	public class Application extends Sprite
+	public class ParticleApp extends Sprite
 	{
 		private var FPreivewArea:TPreviewArea;
 		private var FPanel:TControlPanel;
 		
-		public function Application()
+		public function ParticleApp()
 		{
 			if(stage)
 			{
