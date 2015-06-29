@@ -1,5 +1,8 @@
 package ControlPanel
 {
+    import com.bit101.components.Panel;
+    import com.bit101.components.VBox;
+    
     import flash.display.DisplayObjectContainer;
     
     import ControlPanel.Property.TGeneralProperty;
@@ -7,9 +10,6 @@ package ControlPanel
     import ControlPanel.Property.TTransformProperty;
     
     import UI.TFoldPanelBase;
-    
-    import bit101.components.Panel;
-    import bit101.components.VBox;
     
     import flare.core.Pivot3D;
     

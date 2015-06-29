@@ -21,6 +21,7 @@ package
         private var FSaveCommand:NativeMenuItem;
         private var FOpenRecentMenu:NativeMenuItem;
 
+		
         private var FGridVisibleCommand:NativeMenuItem;
 
         private var FAxisVisibleCommand:NativeMenuItem;

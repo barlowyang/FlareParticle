@@ -1,17 +1,17 @@
 package ControlPanel.Property
 {
+	import com.bit101.components.CheckBox;
+	import com.bit101.components.ComboBox;
+	import com.bit101.components.InputText;
+	import com.bit101.components.Label;
+	import com.bit101.components.NumericStepper;
+	
 	import flash.display.DisplayObjectContainer;
 	import flash.events.Event;
 	import flash.geom.Point;
 	import flash.geom.Vector3D;
 	
 	import UI.TFoldPanelBase;
-	
-	import bit101.components.CheckBox;
-	import bit101.components.ComboBox;
-	import bit101.components.InputText;
-	import bit101.components.Label;
-	import bit101.components.NumericStepper;
 	
 	import flare.apps.controls.GradientColor;
 	import flare.core.Particles3DExt;
@@ -547,7 +547,7 @@ package ControlPanel.Property
 			FTintColor.text = uint(uint(colorVec[0] * 255 << 24) + uint(colorVec[1] * 255 << 16) + uint(colorVec[2] * 255 << 8) + uint(colorVec[3] * 255)).toString(16);
 //			FTintColor.value = uint(colorVec[0] * 255 << 16) + uint(colorVec[1] * 255 << 8) + int(colorVec[2] * 255);
 			
-			draw();
+			invalidate();
 		}
 	}
 }

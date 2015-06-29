@@ -1,5 +1,9 @@
 package UI
 {
+    import com.bit101.components.Component;
+    import com.bit101.components.Style;
+    import com.gt.tools.drawing.Pen;
+    
     import flash.display.DisplayObject;
     import flash.display.DisplayObjectContainer;
     import flash.display.Shape;
@@ -8,11 +12,6 @@ package UI
     import flash.events.MouseEvent;
     import flash.filters.GlowFilter;
     import flash.text.TextFormat;
-    
-    import ascb.drawing.Pen;
-    
-    import bit101.components.Component;
-    import bit101.components.Style;
     
     public class TFoldPanelBase extends Component
     {
@@ -101,7 +100,7 @@ package UI
 			invalidate();
         }
 		
-		override public function onInvalidate(event:Event):void
+		override protected function onInvalidate(event:Event):void
 		{
 			super.onInvalidate(event);
 			
@@ -168,7 +167,6 @@ package UI
             FContent.y = FMask.y = FTitleBar.height;
             
             FTitleBar.width = _width;
-            FTitleBar.draw();
         }
         
         public function get TitleBar():TTitleBar
@@ -191,14 +189,14 @@ package UI
         }
     }
 }
+import com.bit101.components.Component;
+
 import flash.display.DisplayObjectContainer;
 import flash.display.GradientType;
 import flash.geom.Matrix;
 import flash.text.TextField;
 import flash.text.TextFieldAutoSize;
 import flash.text.TextFormat;
-
-import bit101.components.Component;
 
 class TTitleBar extends Component
 {

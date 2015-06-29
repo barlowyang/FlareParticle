@@ -1,12 +1,12 @@
 package
 {
+	import com.bit101.components.Style;
+	
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.display3D.Context3DProfile;
 	import flash.events.Event;
-	
-	import bit101.components.Style;
 	
 	import flare.system.Device3D;
 	
@@ -61,6 +61,5 @@ package
 			FPanel.x = vw;
 			FPreivewArea.setViewport(0, 0, vw, sh);
 		}
-		
 	}
 }

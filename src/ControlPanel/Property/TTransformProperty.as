@@ -1,13 +1,13 @@
 package ControlPanel.Property
 {
+	import com.bit101.components.Label;
+	import com.bit101.components.NumericStepper;
+	
 	import flash.display.DisplayObjectContainer;
 	import flash.events.Event;
 	import flash.geom.Vector3D;
 	
 	import UI.TFoldPanelBase;
-	
-	import bit101.components.Label;
-	import bit101.components.NumericStepper;
 	
 	import flare.core.Pivot3D;
 	
@@ -160,7 +160,7 @@ package ControlPanel.Property
 			FScaleXNum.value = FPivot.scaleY;
 			FScaleXNum.value = FPivot.scaleZ;
 			
-			draw();
+			invalidate();
 		}
 	}
 }

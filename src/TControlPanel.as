@@ -1,15 +1,15 @@
 package
 {
+    import com.bit101.components.Component;
+    import com.bit101.components.Panel;
+    import com.bit101.components.VBox;
+    import com.bit101.components.VScrollBar;
+    
     import flash.display.DisplayObjectContainer;
     import flash.events.Event;
     import flash.events.MouseEvent;
     
     import ControlPanel.TPropertyPanel;
-    
-    import bit101.components.Component;
-    import bit101.components.Panel;
-    import bit101.components.VBox;
-    import bit101.components.VScrollBar;
     
     public class TControlPanel extends Panel
     {
@@ -91,7 +91,6 @@ package
             FScrollbar.setSliderParams(0, maxValue, currValue);
             FScrollbar.setThumbPercent(percent);
             FScrollbar.pageSize = 225;
-            FScrollbar.draw();
         }
         
         private function DragScroll(e:Event):void
@@ -125,8 +124,8 @@ package
             {
                 FPanelList[i].width = pw;
             }
-            
-            UpdatePos();
+			
+			UpdateScroll();
         }
     }
 }

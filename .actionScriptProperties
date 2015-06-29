@@ -31,16 +31,20 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
-      <libraryPathEntry kind="3" linkType="1" path="/Naruto3D_Tool_Libs/bin/Naruto3D_Tool_Libs.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="/Flare3DExt/bin/Flare3DExt.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="/Minimalcomps/bin/Minimalcomps.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="/FlareToolsLib/bin/FlareToolsLib.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
   <applications>
+    <application path="UI_Test.as">
+      <airExcludes/>
+    </application>
     <application path="ParticleApp.as">
       <airExcludes/>
     </application>
-    <application path="UI_Test.as">
+    <application path="Application.as">
       <airExcludes/>
     </application>
   </applications>
